@@ -22,6 +22,12 @@ h3 {
   text-align: center;
 }
 
+h2,
+h3 {
+  padding: 10px 0;
+}
+
+
 ul {
   list-style: none;
 
@@ -31,7 +37,7 @@ ul {
       position: absolute;
       right: 100%;
       content: "--";
-      }
+    }
   }
 }
 
@@ -57,9 +63,10 @@ img {
   float: right;
 }
 
-button {
+.button {
   color: #fff;
   background: #33f;
+  text-decoration: none;
   border: 0 solid #000;
   border-bottom: 1px solid #000;
   border-radius: 5em;
@@ -73,5 +80,39 @@ button {
   height: 100%;
   margin: 0% 20%;
   padding: 0% 5%;
+
+}
+
+#popup {
+  display: none;
+}
+
+#popup:target {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, .5);
+  display: block;
+  min-height: 100%;
+  
+  .popup {
+    background: $background-main;
+    width: 500px;
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 10px;
+      font-size: 1.5em;
+      text-decoration: none;
+      float: left;
+    }
+  }
 
 }
