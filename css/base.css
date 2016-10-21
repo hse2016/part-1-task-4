@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, table {
   margin: 0;
   padding: 0;
@@ -10,6 +11,9 @@ body {
   color: #000;
   font-family: Geneva, Arial, Helvetica, sans-serif;
   font-size: 1.2em;
+  background: repeating-linear-gradient(53deg, black 0px, black 1px, transparent 1px, transparent 7px);
+  /* background: repeating-linear-gradient(to left top, rgba(154, 189, 107, 0) 49%, #9abd6b 52%, #9abd6b 56%, rgba(154, 189, 107, 0) 60%), linear-gradient(to left top, #9abd6b 6%, rgba(154, 189, 107, 0) 10%); */
+  background-color: #cbff9c;
 }
 
 h1,
@@ -25,6 +29,10 @@ h3 {
   padding: 10px 0;
 }
 
+li {
+  padding-bottom: 10px;
+}
+
 ul {
   list-style: none;
 }
@@ -33,8 +41,21 @@ ul li {
 }
 ul li::before {
   position: absolute;
-  right: 100%;
-  content: "--";
+  left: -1.3em;
+  content: '―';
+}
+
+.columns .column {
+  min-width: 10em;
+  float: left;
+  width: 50%;
+}
+.columns::after {
+  display: block;
+  clear: both;
+  min-width: 20em;
+  opacity: 0;
+  content: ' ';
 }
 
 table tr {
@@ -49,6 +70,7 @@ img {
   box-sizing: border-box;
   /* height: 50%; */
   width: 50%;
+  /* min-width: 20em; */
   margin: 25px;
   top: 0;
   right: 0;
@@ -58,6 +80,8 @@ img {
 .button {
   color: #fff;
   background: #33f;
+  padding-left: .5em;
+  padding-right: .5em;
   text-decoration: none;
   border: 0 solid #000;
   border-bottom: 1px solid #000;
@@ -84,17 +108,20 @@ img {
   right: 0;
   bottom: 0;
   left: 0;
-  position: absolute;
+  position: fixed;
   background: rgba(0, 0, 0, 0.5);
   display: block;
   min-height: 100%;
 }
 #popup:target .popup {
   background: #fafafa;
-  width: 500px;
+  width: 60%;
+  padding: 0% 5%;
+  min-height: 300px;
   position: relative;
   margin: auto;
-  padding: 20px;
+}
+#popup:target .popup h1, #popup:target .popup h2, #popup:target .popup h3 {
   text-align: center;
 }
 #popup:target .popup .close {
