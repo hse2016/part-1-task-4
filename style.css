@@ -1,0 +1,69 @@
+html {
+    background: url("images/green-stripes-pattern.jpg") repeat;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0 auto;
+}
+
+.content {
+    background: white;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 60px 20px 60px;
+    overflow: hidden;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+h1, h3, h4 {
+    text-align: center;
+}
+
+h3 {
+    margin-bottom: 0;
+}
+
+#task_image {
+    float: right;
+    border: 1px solid black;
+    margin-left: 20px;
+    width: 50%;
+}
+
+#left-column p, #right-column p {
+    font-size: 14px;
+}
+
+#left-column {
+    float: left;
+    width: 48%;
+}
+
+#right-column {
+    float: right;
+    width: 48%;
+}
+
+#press_me {
+    display: inline-block;
+    outline: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+    background-color: blue;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 2px #999;
+}
+
+#press_me:hover {
+    background-color: mediumblue;
+}
+
+#press_me:active {
+    background-color: mediumblue;
+    box-shadow: 0 1px #777;
+    transform: translateY(1px);
+}
