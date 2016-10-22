@@ -34,6 +34,7 @@ h3 {
 li {
   padding-bottom: 10px;
 }
+
 ul {
   list-style: none;
 
@@ -107,11 +108,11 @@ img {
 
 }
 
-#popup {
+.popup-wrapper {
   display: none;
 }
 
-#popup:target {
+.popup-wrapper:target {
   top: 0;
   right: 0;
   bottom: 0;
