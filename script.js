@@ -5,7 +5,7 @@ let div = document.getElementById('nya');
 ini(leftCanvas, rightCanvas);
 drawGrid(leftCanvas, 10);
 drawGrid(rightCanvas, 10);
-setContent(div);
+makePicture(div);
 
 function ini(firstCanvas, secondCanvas) {
   let leftDecorator = document.getElementById('leftDecorator');
@@ -46,16 +46,50 @@ function drawGrid(canvas, diff) {
   }
 }
 
-function setContent(div) {
+function setContent(div, content) {
+  div.innerHTML = content;
+}
+
+function makePicture(div) {
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'index.html', false);
+  xhr.open('GET', 'index.html', true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState !== 4) {
+      return;
+    }
+
+    if (xhr.status !== 200) {
+      alert(xhr.status + ': ' + xhr.statusText);
+      return;
+    }
+
+    setContent(div, xhr.responseText);
+    let xMod = div.offsetWidth / div.scrollWidth;
+    let yMod = div.offsetHeight / div.scrollHeight;
+    let mod = xMod > yMod ? yMod : xMod;
+    setStyle(div, mod);
+  };
+
   xhr.send();
 
-  if (xhr.status !== 200) {
-    alert(xhr.status + ': ' + xhr.statusText);
-    return;
-  }
+}
 
-  div.innerHTML = xhr.responseText;
+function setStyle(div, mod) {
+  let style = '#nya {' +
+    `-ms-zoom: ${mod};` +
+    `-moz-transform: scale(${mod});` +
+    '-moz-transform-origin: 0 0;' +
+    `-o-transform: scale(${mod});` +
+    '-o-transform-origin: 0 0;' +
+    `-webkit-transform: scale(${mod});` +
+    `-webkit-transform-origin: 0 0;` +
+    'margin-left: auto;' +
+    'margin-right: auto;' +
+    '}';
+
+  var sheet = document.createElement('style');
+  sheet.innerHTML = style;
+
+  document.body.appendChild(sheet);
 }
 

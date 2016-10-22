@@ -61,13 +61,14 @@ ul {
   flex: 1;
 }
 
-#nya {
+#nyaWrapper {
   margin-left: 2.5em;
   float: right;
   max-width: 400px;
   width: 340px;
   height: 400px;
   padding: 0;
+  overflow: hidden;
 }
 
 #leftDecorator {
