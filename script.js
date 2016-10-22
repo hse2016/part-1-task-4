@@ -1,11 +1,17 @@
 let leftCanvas = document.getElementById('leftCanvas');
 let rightCanvas = document.getElementById('rightCanvas');
-let div = document.getElementById('nya');
+let divPicture = document.getElementById('nya');
+let divFloatedRequirements = document.getElementById('floatedRequirements');
+let buttonPressme = document.getElementById('pressme');
+let buttonReqCloser = document.getElementById('reqCloser');
 
 ini(leftCanvas, rightCanvas);
 drawGrid(leftCanvas, 10);
 drawGrid(rightCanvas, 10);
-makePicture(div);
+makePicture(divPicture);
+
+buttonPressme.onclick = pressmeOnClick;
+buttonReqCloser.onclick = reqCloserOnClick;
 
 function ini(firstCanvas, secondCanvas) {
   let leftDecorator = document.getElementById('leftDecorator');
@@ -46,6 +52,28 @@ function drawGrid(canvas, diff) {
   }
 }
 
+function reqCloserOnClick() {
+  if (isVisible(divFloatedRequirements)) {
+    toggleVisibility(divFloatedRequirements);
+  }
+}
+
+function pressmeOnClick() {
+  if (! isVisible(divFloatedRequirements)) {
+    toggleVisibility(divFloatedRequirements);
+  }
+
+  let newX = buttonPressme.offsetLeft;
+  let newY = buttonPressme.offsetTop - divFloatedRequirements.offsetHeight;
+
+  if (newY < 0) {
+    newY = 0;
+  }
+
+  divFloatedRequirements.style.left = newX.toString() + "px";
+  divFloatedRequirements.style.top = newY.toString() + "px";
+}
+
 function setContent(div, content) {
   div.innerHTML = content;
 }
@@ -64,6 +92,7 @@ function makePicture(div) {
     }
 
     setContent(div, xhr.responseText);
+
     let xMod = div.offsetWidth / div.scrollWidth;
     let yMod = div.offsetHeight / div.scrollHeight;
     let mod = xMod > yMod ? yMod : xMod;
@@ -93,3 +122,63 @@ function setStyle(div, mod) {
   document.body.appendChild(sheet);
 }
 
+function makeMover(elem, x, y) {
+  return function() {
+    elem.left = x;
+    elem.top = y;
+  };
+}
+
+function makeVisibilitySetter(elem, next) {
+  return function() {
+    if (! isVisible(elem)) {
+      toggleVisibility(elem);
+    }
+
+    console.log(next);
+    if (typeof next === 'function') {
+      next();
+    }
+  };
+}
+
+function makeVisibilityUnsetter(elem, next) {
+  return function() {
+    if (isVisible(elem)) {
+      toggleVisibility(elem);
+    }
+
+    if (typeof next === 'function') {
+      next();
+    }
+  };
+}
+
+function toggleVisibility(div) {
+  if (hasClass(div, 'invisible')) {
+    removeClass(div, 'invisible');
+  } else {
+    addClass(div, 'invisible');
+  }
+}
+function isVisible(div) {
+  return ! hasClass(div, 'invisible');
+}
+
+function hasClass(element, cls) {
+  return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+}
+
+function removeClass(element, cls) {
+  element.className = element.className.replace(
+    new RegExp('\\b' + cls + '\\b', 'g'), ''
+  );
+
+  element.className = element.className.replace(
+    new RegExp('  ', 'g'), ''
+  );
+}
+
+function addClass(element, cls) {
+  element.className = element.className + ' ' + cls;
+}

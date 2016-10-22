@@ -139,3 +139,40 @@ ul {
 
   background-color: #AAFFAA;
 }
+
+#floatedRequirements {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  left: 0px;
+  top: 0px;
+}
+
+.invisible {
+  display: none;
+}
+
+.closer {
+  float: right;
+  clear: both;
+  position: relative;
+  top: -2px;
+  left: -2px;
+
+  color: white;
+  background-color: red;
+  box-shadow: 2px 2px black;
+  border-radius: 25px;
+}
+
+.closer:focus {
+  outline: 0;
+}
+
+.closer:active {
+  top: 0px;
+  left: 0px;
+
+  box-shadow: none;
+}
