@@ -5,6 +5,7 @@ let div = document.getElementById('nya');
 ini(leftCanvas, rightCanvas);
 drawGrid(leftCanvas, 10);
 drawGrid(rightCanvas, 10);
+setContent(div);
 
 function ini(firstCanvas, secondCanvas) {
   let leftDecorator = document.getElementById('leftDecorator');
