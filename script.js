@@ -1,5 +1,6 @@
 let leftCanvas = document.getElementById('leftCanvas');
 let rightCanvas = document.getElementById('rightCanvas');
+let div = document.getElementById('nya');
 
 ini(leftCanvas, rightCanvas);
 drawGrid(leftCanvas, 10);
@@ -44,12 +45,16 @@ function drawGrid(canvas, diff) {
   }
 }
 
-let xhr = new XMLHttpRequest();
-xhr.open('GET', 'index.html', false);
-xhr.send();
+function setContent(div) {
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', 'index.html', false);
+  xhr.send();
 
-if (xhr.status !== 200) {
-  alert(xhr.status + ': ' + xhr.statusText);
-} else {
-  alert(xhr.responseText);
+  if (xhr.status !== 200) {
+    alert(xhr.status + ': ' + xhr.statusText);
+    return;
+  }
+
+  div.innerHTML = xhr.responseText;
 }
+
