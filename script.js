@@ -13,6 +13,8 @@ makePicture(divPicture);
 buttonPressme.onclick = pressmeOnClick;
 buttonReqCloser.onclick = reqCloserOnClick;
 
+// functions
+
 function ini(firstCanvas, secondCanvas) {
   let leftDecorator = document.getElementById('leftDecorator');
   let rightDecorator = document.getElementById('rightDecorator');
@@ -96,6 +98,7 @@ function makePicture(div) {
     let xMod = div.offsetWidth / div.scrollWidth;
     let yMod = div.offsetHeight / div.scrollHeight;
     let mod = xMod > yMod ? yMod : xMod;
+
     setStyle(div, mod);
   };
 

@@ -8,6 +8,10 @@ body {
   position: relative;
 }
 
+div {
+  z-index: 0;
+}
+
 h1 {
   margin-top: 0px;
   padding-top: 1em;
@@ -66,7 +70,7 @@ ul {
   float: right;
   max-width: 400px;
   width: 340px;
-  height: 400px;
+  height: 350px;
   padding: 0;
   overflow: hidden;
 }
@@ -142,11 +146,12 @@ ul {
 
 #floatedRequirements {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  background-color: white;
+  background-color: #AB8C62;
+  color: white;
   left: 0px;
   top: 0px;
+  margin-right: 2em;
+  z-index: 1;
 }
 
 .invisible {
@@ -155,7 +160,6 @@ ul {
 
 .closer {
   float: right;
-  clear: both;
   position: relative;
   top: -2px;
   left: -2px;
@@ -163,7 +167,7 @@ ul {
   color: white;
   background-color: red;
   box-shadow: 2px 2px black;
-  border-radius: 25px;
+  border-radius: 0px;
 }
 
 .closer:focus {
