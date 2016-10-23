@@ -1,0 +1,44 @@
+.popup-wrapper {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.popup-wrapper:target {
+  background: rgba(0, 0, 0, 0.5);
+  display: block;
+  min-height: 100%;
+}
+.popup-wrapper:target .popup {
+  box-sizing: border-box;
+  background: #fafafa;
+  width: 95%;
+  min-width: 10em;
+  max-width: 55em;
+  padding: 0% 5%;
+  min-height: 300px;
+  position: relative;
+  margin: auto;
+  margin-top: 5em;
+}
+.popup-wrapper:target .popup h1, .popup-wrapper:target .popup h2, .popup-wrapper:target .popup h3 {
+  text-align: center;
+}
+.popup-wrapper:target .popup .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  font-size: 1.5em;
+  text-decoration: none;
+  float: left;
+}
+
+#popup {
+  filter: invert(1);
+}
+
+/*# sourceMappingURL=popup.css.map */
