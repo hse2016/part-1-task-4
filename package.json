@@ -1,0 +1,9 @@
+{
+  "name": "part-1-task-4",
+  "version": "1.0.0",
+
+  "scripts": {
+    "watch-css": "sass --watch ./scss:./css --style expanded",
+    "build": "sass ./scss/base.scss:./css/base.css --style compressed"
+  }
+}
