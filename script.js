@@ -1,12 +1,12 @@
 var popupBackground = document.getElementById('popup-background');
-var pupupWrapper = document.getElementById('popup-wrapper-table');
+var popupWrapper = document.getElementById('popup-wrapper-table');
 
 function showPopup() {
     popupBackground.style.display='block';
-    pupupWrapper.style.display='table';
+    popupWrapper.style.display='table';
 }
 
 function closePopup() {
     popupBackground.style.display='none';
-    pupupWrapper.style.display='none';
+    popupWrapper.style.display='none';
 }

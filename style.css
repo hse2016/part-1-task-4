@@ -78,6 +78,7 @@ img {
 }
 
 /* Дальше всплывающее окно со страницей, фон */
+/* Нашёл хорошее окно здесь http://web-first-step.ru/css_popup/ */
 #popup-background {
     background-color: rgba(0, 0, 0, 0.8);
     display: none;
@@ -121,7 +122,6 @@ img {
 /* Кнопка закрытия */
 .popup-close-button {
     background-color: rgba(0, 0, 0, 0.8);
-    outline: none;
     border: 2px solid #ccc;
     border-radius: 15px;
     box-shadow: 0 1px 3px #000;
@@ -133,7 +133,6 @@ img {
     line-height: 25px; /* 20px */
     cursor: pointer;
     text-align: center;
-    text-decoration: none;
     color: rgba(255, 255, 255, 0.9);
     font-size: 14px;
     font-family: 'helvetica', sans-serif;
