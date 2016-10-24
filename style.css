@@ -5,14 +5,12 @@ html {
 
 body {
     margin: 0 auto;
-    bottom: 0;
 }
 
 #main-content {
     background: white;
     max-width: 600px;
     margin: 0 auto;
-    /*padding: 0 60px 20px;*/
     padding: 0 4% 2%;
     overflow: hidden;
     border-left: 1px solid black;
@@ -30,7 +28,7 @@ h1, h3, h4 {
 }
 
 /* Не выполнено */
-#popup-content h3 {
+#popup-frame h3 {
     margin-bottom: 0;
     color: red;
 }
@@ -58,7 +56,7 @@ img {
     width: 48%;
 }
 
-/* Нажми меня */
+/* Кнопка "Нажми меня", открывает окно */
 .press-me-button {
     display: inline-block;
     outline: none;
@@ -80,21 +78,36 @@ img {
 }
 
 /* Дальше всплывающее окно со страницей, фон */
-/* TODO: сделать фон всегда на весь экран */
 #popup-background {
     background-color: rgba(0, 0, 0, 0.8);
     display: none;
-    position: absolute;
-    z-index: 1;
+    position: fixed;
     margin: 0 auto;
     left: 0;
     top: 0;
     right: 0;
+    bottom: 0;
+}
+
+/* Костыль, чтобы маленькие окна центровались вертикально */
+#popup-wrapper-table {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Костыль, чтобы маленькие окна центровались вертикально */
+#popup-wrapper-cell {
+    display: table-cell;
+    vertical-align: middle;
     padding: 30px 20px;
 }
 
 /* Рамка и содержимое */
-#popup-content {
+#popup-frame {
     background: #fff;
     max-width: 600px;
     margin: 0 auto;
