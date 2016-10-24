@@ -1,30 +1,75 @@
 let leftCanvas = document.getElementById('leftCanvas');
 let rightCanvas = document.getElementById('rightCanvas');
+
+let leftDecorator = document.getElementById('leftDecorator');
+let rightDecorator = document.getElementById('rightDecorator');
+
 let divPicture = document.getElementById('nya');
 let divFloatedRequirements = document.getElementById('floatedRequirements');
+let divPlacer = document.getElementById('placer');
+
 let buttonPressme = document.getElementById('pressme');
 let buttonReqCloser = document.getElementById('reqCloser');
 
-ini(leftCanvas, rightCanvas);
+let resized = false;
+
+window.onresize = function(event) {
+  resized = true;
+};
+
+getHTMLContent(setHTMLContentToPlacer);
+ini(leftCanvas, rightCanvas, leftDecorator, rightDecorator);
 drawGrid(leftCanvas, 10);
 drawGrid(rightCanvas, 10);
-makePicture(divPicture);
+hideElementsOfClass(document, 'unsolved');
+
+setInterval(function() {
+  if (! resized) {
+    return;
+  }
+
+  ini(leftCanvas, rightCanvas, leftDecorator, rightDecorator);
+  drawGrid(leftCanvas, 10);
+  drawGrid(rightCanvas, 10);
+  resized = false;
+}, 500);
 
 buttonPressme.onclick = pressmeOnClick;
 buttonReqCloser.onclick = reqCloserOnClick;
 
 // functions
 
-function ini(firstCanvas, secondCanvas) {
-  let leftDecorator = document.getElementById('leftDecorator');
-  let rightDecorator = document.getElementById('rightDecorator');
+function setHTMLContentToPlacer(htmlContent) {
+  divPlacer.innerHTML = htmlContent;
+  hideElementsOfClass(divPlacer, 'solved');
+}
 
-  let leftCanvasWidth = leftDecorator.offsetWidth;
-  let leftCanvasHeight = leftDecorator.offsetHeight;
-  let rightCanvasWidth = rightDecorator.offsetWidth;
-  let rightCanvasHeight = rightDecorator.offsetHeight;
+function getHTMLContent(callback) {
+  let theUrl = "";
+  if (window.XMLHttpRequest) {
+    xmlhttp=new XMLHttpRequest();
+  }
+  else {
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
 
-  // dich
+  xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      callback(xmlhttp.responseText);
+    }
+  };
+  xmlhttp.open("GET", theUrl, true);
+  xmlhttp.send();
+}
+
+function ini(firstCanvas, secondCanvas, leftDec, rightDec) {
+  let leftCanvasWidth = leftDec.offsetWidth;
+  let leftCanvasHeight = leftDec.offsetHeight;
+  let rightCanvasWidth = rightDec.offsetWidth;
+  let rightCanvasHeight = rightDec.offsetHeight;
+
   firstCanvas.width = leftCanvasWidth;
   firstCanvas.height = leftCanvasHeight;
   secondCanvas.width = rightCanvasWidth;
@@ -63,47 +108,16 @@ function reqCloserOnClick() {
 function pressmeOnClick() {
   if (! isVisible(divFloatedRequirements)) {
     toggleVisibility(divFloatedRequirements);
+
+    let childLeftCanvas = divPlacer.getElementById('leftCanvas');
+    let childCanvasRight = divPlacer.getElementById('rightCanvas');
+    let childLeftDec = divPlacer.getElementById('leftDecorator');
+    let childRightDec = divPlacer.getElementById('rightDecorator');
+
+    ini(childLeftCanvas, childCanvasRight, childLeftDec, childRightDec);
+    drawGrid(childLeftCanvas);
+    drawGrid(childRightCanvas);
   }
-
-  let newX = buttonPressme.offsetLeft;
-  let newY = buttonPressme.offsetTop - divFloatedRequirements.offsetHeight;
-
-  if (newY < 0) {
-    newY = 0;
-  }
-
-  divFloatedRequirements.style.left = newX.toString() + "px";
-  divFloatedRequirements.style.top = newY.toString() + "px";
-}
-
-function setContent(div, content) {
-  div.innerHTML = content;
-}
-
-function makePicture(div) {
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'index.html', true);
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState !== 4) {
-      return;
-    }
-
-    if (xhr.status !== 200) {
-      alert(xhr.status + ': ' + xhr.statusText);
-      return;
-    }
-
-    setContent(div, xhr.responseText);
-
-    let xMod = div.offsetWidth / div.scrollWidth;
-    let yMod = div.offsetHeight / div.scrollHeight;
-    let mod = xMod > yMod ? yMod : xMod;
-
-    setStyle(div, mod);
-  };
-
-  xhr.send();
-
 }
 
 function setStyle(div, mod) {
@@ -125,36 +139,14 @@ function setStyle(div, mod) {
   document.body.appendChild(sheet);
 }
 
-function makeMover(elem, x, y) {
-  return function() {
-    elem.left = x;
-    elem.top = y;
-  };
-}
+function hideElementsOfClass(root, cls) {
+  let elems = root.getElementsByClassName(cls);
 
-function makeVisibilitySetter(elem, next) {
-  return function() {
-    if (! isVisible(elem)) {
-      toggleVisibility(elem);
+  for (let i = 0; i < elems.length; ++i) {
+    if (isVisible(elems[i])) {
+      toggleVisibility(elems[i]);
     }
-
-    console.log(next);
-    if (typeof next === 'function') {
-      next();
-    }
-  };
-}
-
-function makeVisibilityUnsetter(elem, next) {
-  return function() {
-    if (isVisible(elem)) {
-      toggleVisibility(elem);
-    }
-
-    if (typeof next === 'function') {
-      next();
-    }
-  };
+  }
 }
 
 function toggleVisibility(div) {
@@ -164,9 +156,11 @@ function toggleVisibility(div) {
     addClass(div, 'invisible');
   }
 }
+
 function isVisible(div) {
   return ! hasClass(div, 'invisible');
 }
+
 
 function hasClass(element, cls) {
   return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;

@@ -8,39 +8,16 @@
 <body>
   <div id="floatedRequirements" class="invisible">
     <button class="closer" id="reqCloser">X</button>
-    <div class="requirements">
-      <div class="left-column">
-        <h3>Обязательно</h3>
-        <ul>
-        </ul>
-      </div>
-      <div class="right-column">
-        <h3>Опционально</h3>
-        <ul>
-          <li>
-            Максимальная ширина колонки с текстом - как на макете, на более узких ширинах окна браузера ширина колонки должна уменьшатся.
-          </li>
-          <li>
-            Если для каких-то элементов на маленьком экране начинает не хватать места они должны перескакивать на отдельную строку.
-          </li>
-          <li>
-            Содержимое всплывающего кона всегда должно быть доступно, даже на маленьких экранах.
-          </li>
-        </ul>
-      </div>
-    </div>
+    <div id="placer"></div>
   </div>
   <div class="container-top">
-    <div class="column" id="leftDecorator">
+    <div class="flex-column" id="leftDecorator">
       <canvas id="leftCanvas"></canvas>
     </div>
-    <div class="column" id="middleDecorator">
+    <div class="flex-column" id="middleDecorator">
       <div class="content">
         <h1>Домашняя работа №4: вёрстка</h1>
-        <div id="nyaWrapper">
-          <div id="nya">
-          </div>
-        </div>
+        <img src="task.png" alt="Not available">
         <p>
           В этом задании нужно сверстать весь этот текст так, чтобы он выглядел примерно как на этой картинке&rarr;
         </p>
@@ -52,16 +29,16 @@
           <div class="left-column">
             <h3>Обязательно</h3>
             <ol>
-              <li>
+              <li class="solved">
                 Сверстать текста так, чтобы результат был похож на картинку выше.
               </li>
-              <li>
+              <li class="solved">
                 Сделать появляющийся по нажатию на кнопку всплывающее окно с копией текста.
               </li>
-              <li>
+              <li class="solved">
                 Правильно распределить выполненные требования в основном тексте и внутри всплывающего окна.
               </li>
-              <li>
+              <li class="solved">
                 Всплывающее окно должно закрываться по нажатию на крестик в его углу.
               </li>
             </ol>
@@ -69,12 +46,21 @@
           <div class="right-column">
             <h3>Опционально</h3>
             <ul>
+              <li class="solved">
+                Максимальная ширина колонки с текстом - как на макете, на более узких ширинах окна браузера ширина колонки должна уменьшатся.
+              </li>
+              <li class="unsolved">
+                Если для каких-то элементов на маленьком экране начинает не хватать места они должны перескакивать на отдельную строку.
+              </li>
+              <li class="unsolved">
+                Содержимое всплывающего кона всегда должно быть доступно, даже на маленьких экранах.
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="column" id="rightDecorator">
+    <div class="flex-column" id="rightDecorator">
       <canvas id="rightCanvas"></canvas>
     </div>
   </div>
