@@ -1,6 +1,3 @@
-let leftCanvas = document.getElementById('leftCanvas');
-let rightCanvas = document.getElementById('rightCanvas');
-
 let leftDecorator = document.getElementById('leftDecorator');
 let rightDecorator = document.getElementById('rightDecorator');
 
@@ -23,21 +20,7 @@ window.onresize = function(event) {
 };
 
 getHTMLContent(setHTMLContentToPlacer);
-ini(leftCanvas, rightCanvas, leftDecorator, rightDecorator);
-// drawGrid(leftCanvas, 10);
-// drawGrid(rightCanvas, 10);
 hideElementsOfClass(document, 'unsolved');
-
-setInterval(function() {
-  if (! resized) {
-    return;
-  }
-
-  ini(leftCanvas, rightCanvas, leftDecorator, rightDecorator);
-  // drawGrid(leftCanvas, 10);
-  // drawGrid(rightCanvas, 10);
-  resized = false;
-}, 500);
 
 buttonPressme.onclick = pressmeOnClick;
 buttonReqCloser.onclick = reqCloserOnClick;
@@ -45,41 +28,6 @@ buttonReqCloser.onclick = reqCloserOnClick;
 function setHTMLContentToPlacer(htmlContent) {
   divPlacer.innerHTML = htmlContent;
   hideElementsOfClass(divPlacer, 'solved');
-}
-
-function ini(firstCanvas, secondCanvas, leftDec, rightDec) {
-  let leftCanvasWidth = leftDec.offsetWidth;
-  let leftCanvasHeight = leftDec.offsetHeight;
-  let rightCanvasWidth = rightDec.offsetWidth;
-  let rightCanvasHeight = rightDec.offsetHeight;
-
-  firstCanvas.width = leftCanvasWidth;
-  firstCanvas.height = leftCanvasHeight;
-  secondCanvas.width = rightCanvasWidth;
-  secondCanvas.height = rightCanvasHeight;
-}
-
-function drawGrid(canvas, diff) {
-  if (canvas.getContext) {
-    let ctx = canvas.getContext('2d');
-    let count = Math.round((canvas.width + canvas.height) / diff);
-    let x1;
-    let y1;
-    let x2;
-    let y2;
-
-    for (let i = 0; i < count; ++i) {
-      x1 = 0;
-      y1 = -canvas.width + i * diff;
-
-      x2 = canvas.width;
-      y2 = -canvas.width + i * diff + canvas.width;
-
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x2, y2);
-    }
-    ctx.stroke();
-  }
 }
 
 function reqCloserOnClick() {
@@ -93,15 +41,6 @@ let divArray = [];
 function pressmeOnClick() {
   if (! isVisible(divFloatedRequirements)) {
     toggleVisibility(divFloatedRequirements);
-
-    let childLeftCanvas = divPlacer.getElementById('leftCanvas0');
-    let childCanvasRight = divPlacer.getElementById('rightCanvas0');
-    let childLeftDec = divPlacer.getElementById('leftDecorator0');
-    let childRightDec = divPlacer.getElementById('rightDecorator0');
-
-    ini(childLeftCanvas, childCanvasRight, childLeftDec, childRightDec);
-    drawGrid(childLeftCanvas);
-    drawGrid(childRightCanvas);
   }
 }
 
