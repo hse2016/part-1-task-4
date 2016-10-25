@@ -1,0 +1,35 @@
+body {
+  background: repeating-linear-gradient(45deg, #94BA71 0px, #94BA71 5px, #CBFF9C 5px, #CBFF9C 15px);
+  height: 100vh;
+}
+
+.main {
+  background: white;
+  border-color: #94BA71;
+  border-style: solid;
+  border-width: 0 5px;
+  height: 100vh;
+  margin: 0 5vw;
+  padding: 5vw;
+}
+
+.main h1 {
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.main button {
+  background: #1F33E0;
+  border-radius: 100px;
+  border-style: none;
+  box-shadow: 0px 2px black;
+  color: white;
+}
+
+.main button:active {
+  background: #1F33E0;
+}
+
+.main button:focus {
+  outline-style: none;
+}
