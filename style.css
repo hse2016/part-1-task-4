@@ -1,0 +1,24 @@
+* {
+	font-family: sans-serif;
+}
+header {
+	text-align: center;	
+}
+h1, h2, h3, h4 {
+	text-align: center;
+}
+article {
+	text-align: left;
+	margin-top: 100px;
+	margin-right: 100px;
+	margin-left: 100px;
+}
+.columns-req {
+}
+.column {
+	vertical-align: top;
+    margin-right: 20px;
+    padding: 10px;
+    display: inline-block;
+    width: 500px;
+}
