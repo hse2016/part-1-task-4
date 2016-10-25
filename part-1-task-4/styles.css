@@ -1,0 +1,163 @@
+h1 {
+    margin: 15px;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+table {
+}
+/* не знаю почему стришки не рисует*/
+ul li{
+    list-style-image: url('/dash.png');
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0px;
+
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 15px;
+    max-width: 600px;
+
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background-color: white;
+}
+
+.text {
+    overflow: hidden;
+    font-size: 18px;
+}
+.containers {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    max-width: 600px;
+
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background-color: white;
+}
+
+.texts {
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.picture {
+    width: 45%;
+    margin-top: 20px;
+    float: right;
+    border: 1px solid black;
+    margin-left: 28px;
+    margin-bottom: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 25px;
+    width: 135px;
+    background-color: #1f33f1;
+    color: white;
+    height: 18px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 1px;
+    vertical-align: center;
+}
+
+
+/* Базовые стили слоя затемнения и модального окна  */
+.overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    display: none;
+    /* фон затемнения */
+    background-color: rgba(0, 0, 0, 0.65);
+    position: fixed;
+    cursor: default; /* вернуть норм курсор */
+}
+/* активируем слой затемнения */
+.overlay:target {
+    display: block;
+}
+/* стили модального окна */
+.popup {
+    top: -100%;
+    right: 0;
+    left: 50%;
+    z-index: 20;
+    width: 85%;
+    min-width: 320px;
+    max-width: 650px;
+    /* фиксированное позиционирование, чтобы не улетало вниз*/
+    position: fixed;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 1px solid #383838;
+    background-image: url('back.png');
+    /* скругление углов */
+    border-radius: 4px;
+    /* внешняя тень */
+    box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+    /* полёт */
+    transition: transform 0.2s ease-out;
+}
+/* активируем модальный блок. Позиционируем на экране */
+.overlay:target+.popup {
+    transform: translate(-50%, 0);
+    top: 10%;
+}
+/* формируем кнопку закрытия */
+.close {
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    padding: 0;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    background-color: rgba(61, 61, 61, 0.8);
+    box-shadow: 0px 0px 10px #000;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+.close:before {
+    color: red;
+    content: "X";
+    font-size: 12px;
+}
