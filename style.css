@@ -1,9 +1,17 @@
 body {
   z-index: 0;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  z-index: 0;
 }
 
 p {
-  font-size: 1.25em;
+  font-size: 1.15em;
+  margin-left: 1em;
 }
 
 ol {
@@ -20,31 +28,42 @@ ul {
 h1 {
   margin-top: 0px;
   padding-top: 0px;
-  font-size: 2.25em;
+  font-size: 1.85em;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.75em;
+  font-size: 1.35em;
   text-align: center;
+  margin-top: 1.75em;
 }
 
 h3 {
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-top: 0px;
   text-align: center;
 }
 
-img {
+.wrapper {
   float: right;
-  width: 45%;
-  height: 50%;
+  width: 46%;
   margin-left: 20px;
+}
+
+.wrapper > div {
+  -ms-transform: scale(0.37, 0.32)
+  -moz-transform: scale(0.37, 0.32);
+  -moz-transform-origin: 0 0;
+  -o-transform: scale(0.37, 0.32);
+  -o-transform-origin: 0 0;
+  -webkit-transform: scale(0.37, 0.32);
+  -webkit-transform-origin: 0 0;
+  transform: scale(0.37, 0.32)
 }
 
 .left-column {
   float: left;
-  width: 50%;
+  width: 45%;
 }
 
 .right-column {
@@ -55,9 +74,8 @@ img {
 .container-top {
   display: flex;
   max-width: 1000px;
-  max-height: 1040px;
-  min-width: 500px;
-  min-height: 500px;
+  max-height: 400px;
+  width: 1000%;
 }
 
 .flex-column {
@@ -69,10 +87,11 @@ img {
 }
 
 li {
-  font-size: 1.05em;
-  margin-top: 12px;
-  margin-left: 8px;
-  margin-right: 4px;
+  font-size: 1.1em;
+  margin-top: 1em;
+  margin-left: 0.75em;
+  margin-right: 0.5em;
+  margin-bottom: 1em;
 }
 
 ol {
@@ -103,7 +122,7 @@ ul {
   padding-left: 12px;
   padding-right: 12px;
   color: white;
-  font-size: 0.75em;
+  font-size: 0.85em;
   border: 0px;
   border-radius: 25px;
   box-shadow: 0px 2px black;
@@ -125,7 +144,7 @@ ul {
   left: 0px;
   top: 0px;
   margin-right: 2em;
-  z-index: 1;
+  z-index: 2;
 }
 
 #floatedRequirements > .requirements li {
@@ -180,11 +199,15 @@ ul {
 }
 
 .requirements {
-  clear: both;
+  /* clear: both; */
 }
 
 .requirements > .right-column{
   margin-left: 15px;
+}
+
+body > .container-top > .flex-column > .content > .requirements > .right-column {
+  /* background-color: red; */
 }
 
 .requirements > .right-column > ul {
@@ -194,7 +217,7 @@ ul {
 .requirements > .right-column > ul > li:before{
   display: inline-block;
   width: 12px !important;
-  margin-left: -12px;
+  margin-left: -20px;
   content:'-';
 }
 

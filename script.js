@@ -6,18 +6,23 @@ let rightDecorator = document.getElementById('rightDecorator');
 
 let divPicture = document.getElementById('nya');
 let divFloatedRequirements = document.getElementById('floatedRequirements');
-let divPlacer = document.getElementById('placer');
+// let divPlacer = document.getElementById('placer');
 
 let buttonPressme = document.getElementById('pressme');
 let buttonReqCloser = document.getElementById('reqCloser');
 
 let resized = false;
 
+let cloned = document.getElementsByClassName('container-top')[0].cloneNode(true);
+document.getElementsByClassName('wrapper')[0].appendChild(cloned);
+
+let cloned2 = cloned.cloneNode(true);
+cloned.getElementsByClassName('wrapper')[0].appendChild(cloned2);
+
 window.onresize = function(event) {
   resized = true;
 };
 
-getHTMLContent(setHTMLContentToPlacer);
 ini(leftCanvas, rightCanvas, leftDecorator, rightDecorator);
 drawGrid(leftCanvas, 10);
 drawGrid(rightCanvas, 10);
@@ -38,11 +43,6 @@ buttonPressme.onclick = pressmeOnClick;
 buttonReqCloser.onclick = reqCloserOnClick;
 
 // functions
-
-function setHTMLContentToPlacer(htmlContent) {
-  divPlacer.innerHTML = htmlContent;
-  hideElementsOfClass(divPlacer, 'solved');
-}
 
 function getHTMLContent(callback) {
   let theUrl = "";
@@ -106,18 +106,16 @@ function reqCloserOnClick() {
 }
 
 function pressmeOnClick() {
-  if (! isVisible(divFloatedRequirements)) {
-    toggleVisibility(divFloatedRequirements);
+  toggleVisibility(divFloatedRequirements);
 
-    let childLeftCanvas = divPlacer.getElementById('leftCanvas');
-    let childCanvasRight = divPlacer.getElementById('rightCanvas');
-    let childLeftDec = divPlacer.getElementById('leftDecorator');
-    let childRightDec = divPlacer.getElementById('rightDecorator');
+  let childLeftCanvas = divPlacer.getElementById('leftCanvas');
+  let childCanvasRight = divPlacer.getElementById('rightCanvas');
+  let childLeftDec = divPlacer.getElementById('leftDecorator');
+  let childRightDec = divPlacer.getElementById('rightDecorator');
 
-    ini(childLeftCanvas, childCanvasRight, childLeftDec, childRightDec);
-    drawGrid(childLeftCanvas);
-    drawGrid(childRightCanvas);
-  }
+  ini(childLeftCanvas, childCanvasRight, childLeftDec, childRightDec);
+  drawGrid(childLeftCanvas);
+  drawGrid(childRightCanvas);
 }
 
 function setStyle(div, mod) {
