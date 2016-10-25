@@ -104,7 +104,10 @@ ul {
 #leftDecorator, #rightDecorator {
   max-width: 50px;
 
-  background-color: #AAFFAA;
+  background: -webkit-repeating-linear-gradient(45deg, black 0px, black 2px, #AAFFAA 2px, #AAFFAA 10px);
+  background: -moz-repeating-linear-gradient(45deg, black 0px, black 2px, #AAFFAA 2px, #AAFFAA 10px);
+  background: -o-repeating-linear-gradient(45deg, black 0px, black 2px, #AAFFAA 2px, #AAFFAA 10px);
+  background: repeating-linear-gradient(45deg, black 0px, black 2px, #AAFFAA 2px, #AAFFAA 10px);
 }
 
 .invisible {
@@ -206,7 +209,7 @@ ul {
 
 .requirements > .right-column > ul > li:before{
   display: inline-block;
-  width: 12px !important;
+  width: 12px;
   margin-left: -20px;
   content: '—';
 }

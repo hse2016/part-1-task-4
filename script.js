@@ -24,8 +24,8 @@ window.onresize = function(event) {
 
 getHTMLContent(setHTMLContentToPlacer);
 ini(leftCanvas, rightCanvas, leftDecorator, rightDecorator);
-drawGrid(leftCanvas, 10);
-drawGrid(rightCanvas, 10);
+// drawGrid(leftCanvas, 10);
+// drawGrid(rightCanvas, 10);
 hideElementsOfClass(document, 'unsolved');
 
 setInterval(function() {
@@ -34,8 +34,8 @@ setInterval(function() {
   }
 
   ini(leftCanvas, rightCanvas, leftDecorator, rightDecorator);
-  drawGrid(leftCanvas, 10);
-  drawGrid(rightCanvas, 10);
+  // drawGrid(leftCanvas, 10);
+  // drawGrid(rightCanvas, 10);
   resized = false;
 }, 500);
 
