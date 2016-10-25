@@ -1,0 +1,52 @@
+h1 {
+    margin: 15px;
+    text-align: center;
+}
+
+
+.container {
+     display: table;
+     max-width: 730px;
+     min-height: 100%;
+     margin-right: auto;
+     margin-left: auto;
+
+     padding-left: 70px;
+     padding-right: 70px;
+     padding-top: 15px;
+}
+
+.text {
+    overflow: hidden;
+    font-size: large;
+}
+
+.picture {
+    width: 48%;
+    margin-top: 20px;
+    float: right;
+    border: 1px solid black;
+    margin-left: 28px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 25px;
+    width: 135px;
+    background-color: #1f33f1;
+    color: white;
+    outline: none;
+    height: 22px;
+    font-size: 15px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: center;
+}
