@@ -4,9 +4,8 @@ let rightCanvas = document.getElementById('rightCanvas');
 let leftDecorator = document.getElementById('leftDecorator');
 let rightDecorator = document.getElementById('rightDecorator');
 
-let divPicture = document.getElementById('nya');
 let divFloatedRequirements = document.getElementById('floatedRequirements');
-// let divPlacer = document.getElementById('placer');
+let divPlacer = document.getElementById('placer');
 
 let buttonPressme = document.getElementById('pressme');
 let buttonReqCloser = document.getElementById('reqCloser');
@@ -23,6 +22,7 @@ window.onresize = function(event) {
   resized = true;
 };
 
+getHTMLContent(setHTMLContentToPlacer);
 ini(leftCanvas, rightCanvas, leftDecorator, rightDecorator);
 drawGrid(leftCanvas, 10);
 drawGrid(rightCanvas, 10);
@@ -42,26 +42,9 @@ setInterval(function() {
 buttonPressme.onclick = pressmeOnClick;
 buttonReqCloser.onclick = reqCloserOnClick;
 
-// functions
-
-function getHTMLContent(callback) {
-  let theUrl = "";
-  if (window.XMLHttpRequest) {
-    xmlhttp=new XMLHttpRequest();
-  }
-  else {
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-
-  xmlhttp.onreadystatechange=function()
-  {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-      callback(xmlhttp.responseText);
-    }
-  };
-  xmlhttp.open("GET", theUrl, true);
-  xmlhttp.send();
+function setHTMLContentToPlacer(htmlContent) {
+  divPlacer.innerHTML = htmlContent;
+  hideElementsOfClass(divPlacer, 'solved');
 }
 
 function ini(firstCanvas, secondCanvas, leftDec, rightDec) {
@@ -105,17 +88,41 @@ function reqCloserOnClick() {
   }
 }
 
+let divArray = [];
+
 function pressmeOnClick() {
-  toggleVisibility(divFloatedRequirements);
+  if (! isVisible(divFloatedRequirements)) {
+    toggleVisibility(divFloatedRequirements);
 
-  let childLeftCanvas = divPlacer.getElementById('leftCanvas');
-  let childCanvasRight = divPlacer.getElementById('rightCanvas');
-  let childLeftDec = divPlacer.getElementById('leftDecorator');
-  let childRightDec = divPlacer.getElementById('rightDecorator');
+    let childLeftCanvas = divPlacer.getElementById('leftCanvas0');
+    let childCanvasRight = divPlacer.getElementById('rightCanvas0');
+    let childLeftDec = divPlacer.getElementById('leftDecorator0');
+    let childRightDec = divPlacer.getElementById('rightDecorator0');
 
-  ini(childLeftCanvas, childCanvasRight, childLeftDec, childRightDec);
-  drawGrid(childLeftCanvas);
-  drawGrid(childRightCanvas);
+    ini(childLeftCanvas, childCanvasRight, childLeftDec, childRightDec);
+    drawGrid(childLeftCanvas);
+    drawGrid(childRightCanvas);
+  }
+}
+
+function getHTMLContent(callback) {
+  let theUrl = "";
+  if (window.XMLHttpRequest) {
+    xmlhttp=new XMLHttpRequest();
+  }
+  else {
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      callback(xmlhttp.responseText);
+    }
+  };
+  xmlhttp.open("GET", theUrl, true);
+  xmlhttp.send();
 }
 
 function setStyle(div, mod) {

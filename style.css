@@ -1,12 +1,8 @@
 body {
-  z-index: 0;
+  z-index: -1;
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-}
-
-div {
-  z-index: 0;
 }
 
 p {
@@ -144,7 +140,6 @@ ul {
   left: 0px;
   top: 0px;
   margin-right: 2em;
-  z-index: 2;
 }
 
 #floatedRequirements > .requirements li {
@@ -199,15 +194,10 @@ ul {
 }
 
 .requirements {
-  /* clear: both; */
 }
 
 .requirements > .right-column{
   margin-left: 15px;
-}
-
-body > .container-top > .flex-column > .content > .requirements > .right-column {
-  /* background-color: red; */
 }
 
 .requirements > .right-column > ul {
@@ -218,11 +208,36 @@ body > .container-top > .flex-column > .content > .requirements > .right-column 
   display: inline-block;
   width: 12px !important;
   margin-left: -20px;
-  content:'-';
+  content: '—';
 }
 
 .solved {
 }
 
 .unsolved {
+}
+
+#floatedRequirements {
+  position: absolute;
+  background-color: white;
+  left: 0px;
+  top: 0px;
+  margin-right: 2em;
+  z-index: 10 !important;
+}
+
+#floatedRequirements > .requirements li {
+  margin: 1em;
+}
+
+#floatedRequirements > .requirements {
+  display: flex;
+}
+
+#floatedRequirements > .requirements {
+  display: flex;
+}
+
+#floatedRequirements > .requirements > div > h3 {
+  flex: 1;
 }
