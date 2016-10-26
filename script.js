@@ -1,13 +1,8 @@
-let leftDecorator = document.getElementById('leftDecorator');
-let rightDecorator = document.getElementById('rightDecorator');
-
 let divFloatedRequirements = document.getElementById('floatedRequirements');
 let divPlacer = document.getElementById('placer');
 
 let buttonPressme = document.getElementById('pressme');
 let buttonReqCloser = document.getElementById('reqCloser');
-
-let resized = false;
 
 let cloned = document.getElementsByClassName('container-top')[0].cloneNode(true);
 document.getElementsByClassName('wrapper')[0].appendChild(cloned);
@@ -15,9 +10,7 @@ document.getElementsByClassName('wrapper')[0].appendChild(cloned);
 let cloned2 = cloned.cloneNode(true);
 cloned.getElementsByClassName('wrapper')[0].appendChild(cloned2);
 
-window.onresize = function(event) {
-  resized = true;
-};
+let metacloned = cloned.cloneNode(true);
 
 getHTMLContent(setHTMLContentToPlacer);
 hideElementsOfClass(document, 'unsolved');
@@ -25,8 +18,13 @@ hideElementsOfClass(document, 'unsolved');
 buttonPressme.onclick = pressmeOnClick;
 buttonReqCloser.onclick = reqCloserOnClick;
 
+function cloneContent() {
+  return metacloned.cloneNode(true);
+}
+
 function setHTMLContentToPlacer(htmlContent) {
-  divPlacer.innerHTML = htmlContent;
+  divPlacer.insertAdjacentHTML('beforeend', htmlContent);
+  divPlacer.getElementsByClassName('wrapper')[0].appendChild(cloneContent());
   hideElementsOfClass(divPlacer, 'solved');
 }
 
@@ -41,6 +39,15 @@ let divArray = [];
 function pressmeOnClick() {
   if (! isVisible(divFloatedRequirements)) {
     toggleVisibility(divFloatedRequirements);
+
+    let width = divPlacer.offsetWidth;
+    let height = divPlacer.offsetHeight;
+
+    console.log(width);
+    console.log(height);
+
+    divFloatedRequirements.style.width = width;
+    divFloatedRequirements.style.height = height;
   }
 }
 
