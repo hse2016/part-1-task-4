@@ -1,0 +1,44 @@
+body {
+  background: linear-gradient(45deg, transparent 50%, #94ba71 50%, #94ba71 60%, transparent 60%), linear-gradient(45deg, #94ba71 10%, transparent 10%);
+  background-size: 2em 2em;
+  background-color: #cbff9c;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background: white;
+  border-color: #94ba71;
+  border-style: solid;
+  border-width: 0 5px;
+  height: 100vh;
+  margin: 0 5vw;
+  padding: 5vw;
+}
+
+.main h1 {
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.main button {
+  background: #1f33e0;
+  border-radius: 100px;
+  border-style: none;
+  box-shadow: 0px 2px black;
+  color: white;
+}
+
+.main button:active {
+  box-shadow: none;
+  margin: 2px 0 0 0;
+}
+
+.main button:focus {
+  outline-style: none;
+}
+
+#recursion {
+  float: right;
+  width: calc(100% / 3);
+}
