@@ -1,5 +1,3 @@
-let frames = [];
-let beginFrame = {};
 let divFloatedRequirements = document.getElementById('floatedRequirements0');
 let divPlacer = document.getElementById('placer0');
 

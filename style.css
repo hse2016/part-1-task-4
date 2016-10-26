@@ -48,6 +48,10 @@ li {
   margin-bottom: 1em;
 }
 
+.container-top {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .left-column {
   float: left;
@@ -93,6 +97,7 @@ li {
   top: 23px;
   left: 67px;
 
+  content: 'X';
   color: white;
   background-color: red;
   box-shadow: 2px 2px black;
@@ -183,10 +188,8 @@ li {
 #leftDecorator, #rightDecorator {
   max-width: 50px;
 
-  background: -webkit-repeating-linear-gradient(45deg, transparent 0%, black 1px, black 1px, #AAFFAA 2px, #AAFFAA 10px);
-  background: -moz-repeating-linear-gradient(45deg, transparent 0%, black 1px, black 1px, #AAFFAA 2px, #AAFFAA 10px);
-  background: -o-repeating-linear-gradient(45deg, transparent 0%, black 1px, black 1px, #AAFFAA 2px, #AAFFAA 10px);
-  background: repeating-linear-gradient(45deg, transparent 0%, black 1px, black 1px, #AAFFAA 2px, #AAFFAA 10px);
+  background: -o-repeating-linear-gradient(45deg, transparent 0%, black 1px, black 1px, #A7E571 2px, #A7E571 10px);
+  background: repeating-linear-gradient(45deg, transparent 0%, black 1px, black 1px, #A7E571 2px, #A7E571 10px);
 }
 
 .container-top {
@@ -198,6 +201,12 @@ li {
 
 .flex-column {
   flex: 1;
+  border-left: 1px solid #73AB42;
+}
+
+.flex-column:nth-child(1) {
+  flex: 1;
+  border-left: none;
 }
 
 .invisible {
