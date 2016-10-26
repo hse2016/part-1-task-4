@@ -10,15 +10,43 @@ h1, h2, h3, h4 {
 article {
 	text-align: left;
 	margin-top: 100px;
-	margin-right: 100px;
-	margin-left: 100px;
+	margin-right: 10%;
+	margin-left: 10%;
 }
 .columns-req {
 }
+
+ul > li {
+	margin-bottom: 10px;
+}
+
+ol > li {
+	margin-bottom: 10px;
+}
+
+ul.dashed {
+	list-style-type: none;
+}
+ul.dashed > li:before{
+	display: inline-block;
+    content: "—";
+    width: 2em;
+    margin-left: -1.5em;
+}
 .column {
 	vertical-align: top;
-    margin-right: 20px;
-    padding: 10px;
     display: inline-block;
-    width: 500px;
+    width: 49%;
+}
+
+body {
+	background-image: url('border.png');
+	margin : 0px;
+	height: 100%;
+}
+
+.content {
+	margin-right : 10%;
+	margin-left: 10%;
+	background-color: #FFFFFF;
 }
