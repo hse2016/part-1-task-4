@@ -15,18 +15,14 @@ body {
 		);
 }
 
-h1 {
+h1, h2, h3  {
 	margin-top: 0;
 	text-align: center;
 }
 
-h2, h3 {
-	text-align: center;
-}
-
 #global_content {
+	display: inline-block;
 	background-color: white;
-	height: 100%
 	width: 90%;
 
 	margin-left: 5%;
@@ -64,7 +60,6 @@ span {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
     box-shadow: 1px 1px 2px #888888;
@@ -80,9 +75,8 @@ span {
   	padding: 0;
 }
 
-#requirements li {
+#requirements > li {
 	 display: table;
-
 }
 
 .left {
