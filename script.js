@@ -43,9 +43,6 @@ function pressmeOnClick() {
     let width = divPlacer.offsetWidth;
     let height = divPlacer.offsetHeight;
 
-    console.log(width);
-    console.log(height);
-
     divFloatedRequirements.style.width = width;
     divFloatedRequirements.style.height = height;
   }
@@ -69,25 +66,6 @@ function getHTMLContent(callback, targetPlacer) {
   };
   xmlhttp.open("GET", theUrl, true);
   xmlhttp.send();
-}
-
-function setStyle(div, mod) {
-  let style = '#nya {' +
-    `-ms-zoom: ${mod};` +
-    `-moz-transform: scale(${mod});` +
-    '-moz-transform-origin: 0 0;' +
-    `-o-transform: scale(${mod});` +
-    '-o-transform-origin: 0 0;' +
-    `-webkit-transform: scale(${mod});` +
-    `-webkit-transform-origin: 0 0;` +
-    'margin-left: auto;' +
-    'margin-right: auto;' +
-    '}';
-
-  var sheet = document.createElement('style');
-  sheet.innerHTML = style;
-
-  document.body.appendChild(sheet);
 }
 
 function hideElementsOfClass(root, cls) {

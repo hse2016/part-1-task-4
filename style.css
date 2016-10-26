@@ -80,6 +80,11 @@ li {
   box-shadow: 0px 2px black;
 }
 
+.pressme:hover {
+  background-color: #0e57cc;
+  cursor: pointer;
+}
+
 .pressme:active {
   position: relative;
   top: 0px;
@@ -102,6 +107,11 @@ li {
   background-color: red;
   box-shadow: 2px 2px black;
   border-radius: 0px;
+}
+
+.closer:hover {
+  background-color: #f44242;
+  cursor: default;
 }
 
 .closer:focus {
