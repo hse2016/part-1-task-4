@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+
+        .rightimg  {
+            float: right; /* Выравнивание по правому краю  */
+            margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
+            width: 100px;
+            height: 200px;
+       }
+
+        p {
+            padding: 0cm 1cm 0cm 1cm;
+        }
+        table {
+            table-layout: fixed;
+            word-break: break-all;
+        }
+        
+        .shit {
+            background: repeating-linear-gradient(45deg, rgb(148,186,113), rgb(148,186,113), rgb(203,255,156) 2px, rgb(203,255,156) 10px);
+        }
+        
+        .golittle {
+            transform: scale(0.37, 0.32);
+        }
+        
+        button {
+            background-color: blue;
+            color: white;
+            border-radius: 10px;
+        }
+        
+        ul {
+            list-style-type: none;    
+        }
+
+        ul li:before {
+            content:'-';
+            width: 1em !important;
+            margin-left: -1em;
+            display: inline-block;
+        }
+        
+        
+        li {
+            margin: 0 0 10px 0;
+        }
+        
+        .fontpixel{
+            width: 50%;
+            height: 100px;
+            float: right; /* Выравнивание по правому краю  */
+            margin: 7px 0 7px 7px;
+        }
+        
+        
+        .modalDialog {
+            position: absolute;
+            align-self: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 99999;
+            opacity:0;
+            -webkit-transition: opacity 400ms ease-in;
+            -moz-transition: opacity 400ms ease-in;
+            transition: opacity 400ms ease-in;
+            pointer-events: none;
+        }
+        .modalDialog:target {
+            opacity:1;
+            pointer-events: auto;
+        }
+
+        .modalDialog > div {
+            width: 90%;
+            height: 70%;
+            position: relative;
+            overflow-y: scroll;
+            margin: 10% auto;
+            padding: 5px 20px 13px 20px;
+            border-radius: 10px;
+            background: #fff;
+            background: -moz-linear-gradient(#fff, #999);
+            background: -webkit-linear-gradient(#fff, #999);
+            background: -o-linear-gradient(#fff, #999);
+        }
+        .close {
+            background: #606061;
+            color: #FFFFFF;
+            line-height: 40px;
+            position: absolute;
+            right: 90%;
+            text-align: center;
+            top: -10px;
+            width: 24px;
+            text-decoration: none;
+            font-weight: bold;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 1px 1px 3px #000;
+            -webkit-box-shadow: 1px 1px 3px #000;
+            box-shadow: 1px 1px 3px #000;
+        }
+        
+        .wrapper {
+          float: right;
+          width: 46%;
+          margin-left: 40px;
+            max-height: 300px;
+        }
+
+        .wrapper > table {
+          -ms-transform: scale(0.37, 0.32)
+          -moz-transform: scale(0.37, 0.32);
+          -moz-transform-origin: 0 0;
+          -o-transform: scale(0.37, 0.32);
+          -o-transform-origin: 0 0;
+          -webkit-transform: scale(0.37, 0.32);
+          -webkit-transform-origin: 0 0;
+          transform: scale(0.37, 0.32)
+        }
+
+        .close:hover { background: #00d9ff; }
+    </style>
+  </head>
+  <body>
+  <div id = 'wrapGen'>
+   <table id ="mainTable" align="center" width = "800px">
+      <tr>
+          <td class = "shit" width = "10%"></td>
+          <td width = "100%"><h1 align="center"><font face="Arial">Домашняя работа №4: вёрстка</font></h1>
+          
+          <!--<img src="sharoyoba.png" alt="Рекурсия" class="rightimg">-->
+          <div id = "inner" class = "wrapper"></div>
+               
+          <p>               
+          <font face="Arial">В этом задании нужно сверстать весь этот текст  так, чтобы он выглядел примерно как на этой картинке:<br><br>
+          В свёрстанном тексте из списка требований ниже <b>необходимо</b> оставить только те пункты, которые выполняются для вашего решения.<br><br>
+          Кроме того, в свёрстанном тексте задания должна быть вот такая кнопка: <button onclick="window.location.href='#openModal'" type="button">Нажми меня</button>, по нажатию на которую должно показаться всплывающее окно с копией этого текста (не браузерное окно, а реализованное средствами вёрстки), но с тем отличием, что вместо выполненных пунктов там должны будут оказаться не выполненные. Если же выполненны будут все, то можно придумать что было бы ещё здорово реализовать в рамках этого задания и <i>не выполнять их.</i></font>
+          </p>
+
+            <div id="openModal" class="modalDialog">
+                <div id = "popup">
+                    <a href="#close" title="Close" class="close">X</a>
+                </div>
+            </div>
+
+          
+          
+          
+          
+          
+          <h2 align="center">Требования</h2>
+          <table align = "center" width = "90%">
+              <tr>
+                  <td width = "50%"><h3 align = "center">Обязательно</h3></td>
+                  <td width = "50%"><h3 align = "center">Опционально</h3></td>
+              </tr>
+              <tr>
+                  <td style="vertical-align:top">
+                      <ol id = 'toDel'>
+                          <li id ='task1'>Сверстать текст так, чтобы результат был похож на картинку выше.</li>
+                          <li id ='task2'>Сделать появляющийся по нажатию на кнопку всплывающее окно с копией текста.</li>
+                          <li id ='task3'>Правильно распределить выполненные требования в основном тексте и внутри всплывающего окна.</li>
+                          <li id ='task4'>Всплывающее окно должно закрываться по нажатию на крестик в его углу.</li>
+                      </ol>
+                  </td>
+                  <td>
+                      <ul>
+                          <li>Максимальная ширина колонки с текстом — как на макете, на более узких ширинах окна браузера ширина колонки должна уменьшаться.</li>
+                          <li>Если для каких-то элементов на маленьком экране начинает не хватать места, они должны перескакивать на отдельную строку.</li>
+                          <li>Содержимое всплывающего окна всегда должно быть доступно, даже на маленьких экранах.</li>
+                      </ul>
+                  </td>
+              </tr>
+          </table>
+          </td>
+          <td  class = "shit" width = "10%"></td>
+      </tr>
+
+   <script>
+      var newelement = document.getElementById("mainTable").cloneNode(true);
+       //i hate myself after this, believe me
+       console.log(newelement.childNodes[1].childNodes[0].childNodes[3].childNodes[12].childNodes[1].childNodes[2].childNodes[1].childNodes[1]);
+       newelement.childNodes[1].childNodes[0].childNodes[3].childNodes[12].childNodes[1].childNodes[2].childNodes[1].childNodes[1].style.display = 'none';      
+       
+      var element = document.getElementById("popup");
+      element.appendChild(newelement);
+   </script>
+   
+   <script>
+      var d1 = document.getElementById('inner');
+      d1.insertAdjacentHTML('beforeend', document.getElementById('wrapGen').innerHTML);
+  </script>
+
+   </table>
+   
+</div>
+
+
+  </body>
+</html>
