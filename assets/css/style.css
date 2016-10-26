@@ -24,7 +24,7 @@ h2 {
 }
 
 h3 {
-    margin-top: 12px;
+    margin-top: 9px;
     letter-spacing: 0.8px;
 }
 
@@ -44,11 +44,11 @@ ul, ol {
 }
 
 ol {
-    padding-left: 19px;
+    padding-left: 22px;
 }
 
 ul {
-    margin-left: -7px;
+    margin-left: 5px;
 }
 
 ul.dashed {
@@ -56,12 +56,16 @@ ul.dashed {
     position: relative;
 }
 
-li {
-    margin-top: 22px;
+ol li {
+    margin-top: 24px;
+}
+
+ul li {
+    margin-top: 25px;
 }
 
 p:first-of-type {
-    margin-top: 16px;
+    margin-top: 13px;
 }
 
 ul.dashed li:before {
@@ -80,6 +84,8 @@ ul.dashed li:before {
     padding-left: 70px;
     padding-right: 70px;
     padding-top: 15px;
+    padding-bottom: 25px;
+
 }
 
 .container.white {
@@ -99,6 +105,7 @@ ul.dashed li:before {
     float: right;
     border: 1px solid black;
     margin-left: 28px;
+    margin-bottom: 22px;
 }
 
 .row {
@@ -107,7 +114,16 @@ ul.dashed li:before {
 
 .col-6 {
     display: inline-table;
-    width: 48%;
+    width: 49%;
+}
+
+.col-6.less {
+    width: calc(49% - 6px);
+}
+
+
+.col-6.more {
+    width: calc(49% + 17px);
 }
 
 .text {
@@ -122,7 +138,7 @@ ul.dashed li:before {
     color: white;
     outline: none;
     height: 25px;
-    font-size: 15px;
+    font-size: 17px;
     text-decoration: none;
     text-align: center;
 }
