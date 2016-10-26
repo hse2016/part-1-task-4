@@ -1,8 +1,10 @@
-let divFloatedRequirements = document.getElementById('floatedRequirements');
-let divPlacer = document.getElementById('placer');
+let frames = [];
+let beginFrame = {};
+let divFloatedRequirements = document.getElementById('floatedRequirements0');
+let divPlacer = document.getElementById('placer0');
 
-let buttonPressme = document.getElementById('pressme');
-let buttonReqCloser = document.getElementById('reqCloser');
+let buttonPressme = document.getElementById('pressme0');
+let buttonReqCloser = document.getElementById('reqCloser0');
 
 let cloned = document.getElementsByClassName('container-top')[0].cloneNode(true);
 document.getElementsByClassName('wrapper')[0].appendChild(cloned);
@@ -12,7 +14,7 @@ cloned.getElementsByClassName('wrapper')[0].appendChild(cloned2);
 
 let metacloned = cloned.cloneNode(true);
 
-getHTMLContent(setHTMLContentToPlacer);
+getHTMLContent(setHTMLContentToPlacer, divPlacer);
 hideElementsOfClass(document, 'unsolved');
 
 buttonPressme.onclick = pressmeOnClick;
@@ -22,10 +24,10 @@ function cloneContent() {
   return metacloned.cloneNode(true);
 }
 
-function setHTMLContentToPlacer(htmlContent) {
-  divPlacer.insertAdjacentHTML('beforeend', htmlContent);
-  divPlacer.getElementsByClassName('wrapper')[0].appendChild(cloneContent());
-  hideElementsOfClass(divPlacer, 'solved');
+function setHTMLContentToPlacer(targetDivPlacer, htmlContent) {
+  targetDivPlacer.insertAdjacentHTML('beforeend', htmlContent);
+  targetDivPlacer.getElementsByClassName('wrapper')[0].appendChild(cloneContent());
+  hideElementsOfClass(targetDivPlacer, 'solved');
 }
 
 function reqCloserOnClick() {
@@ -51,7 +53,7 @@ function pressmeOnClick() {
   }
 }
 
-function getHTMLContent(callback) {
+function getHTMLContent(callback, targetPlacer) {
   let theUrl = "";
   if (window.XMLHttpRequest) {
     xmlhttp=new XMLHttpRequest();
@@ -64,7 +66,7 @@ function getHTMLContent(callback) {
   {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-      callback(xmlhttp.responseText);
+      callback(targetPlacer, xmlhttp.responseText);
     }
   };
   xmlhttp.open("GET", theUrl, true);
@@ -123,7 +125,7 @@ function removeClass(element, cls) {
   );
 
   element.className = element.className.replace(
-    new RegExp('  ', 'g'), ''
+    new RegExp('  ', 'g'), ' '
   );
 }
 
