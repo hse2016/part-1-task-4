@@ -37,7 +37,6 @@ ul.dashed > li:before{
 	display: inline-block;
     content: "—";
     width: 2em;
-    margin-left: -1.5em;
 }
 .column {
 	vertical-align: top;
@@ -47,9 +46,8 @@ ul.dashed > li:before{
 }
 
 body {
-	background-image: url('border.png');
 	margin : 0px;
-	height: 100%;
+	position: relative;
 }
 
 #content {
@@ -70,4 +68,37 @@ body {
 	height: 0px;
 	width: 0px;
 	float: right;
+}
+
+.border {
+	position: absolute;
+	background-image: url('border.png');
+	width: 10%;
+	height: 105%;
+	margin-top: -5%;
+}
+
+.border-pop {
+	position: absolute;
+	background-image: url('border.png');
+	width: 27px;
+	height: 400px;
+}
+
+#left-border {
+	float: left;
+}
+
+#right-border {
+	float: right;
+	right: 0px;
+}
+
+#right-border-pop {
+	float: right;
+	margin-left: 270px;
+}
+
+#close {
+	margin-left: 30px; 
 }

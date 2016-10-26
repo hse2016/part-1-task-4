@@ -5,7 +5,11 @@
   <link rel="stylesheet" href="style.css">
   <title>Тест</title>
  </head> 
- <body id="main">
+ <body>
+ <div class="border" id="left-border">
+  </div>
+  <div class="border" id="right-border">
+  </div>
   <div id="content">
   <header>
     <h1>Домашняя работа №4: вёрстка</h1>
@@ -26,16 +30,16 @@
 		<div class="column">
 			<h4>Обязательно</h4>
 			<ol>
-				<li>Сверстать текст так, чтобы результат был похож на картинку выше.</li>
-				<li>Сделать появляющийся по нажатию на кнопку всплывающее окно с копией текста.</li>
-				<li>Правильно распределить выполненные требования в основном тексте и внутри всплывающего окна.</li>
-				<li>Всплывающее окно должно закрываться по нажатию на крестик в его углу.</li>
+				<li class="solved">Сверстать текст так, чтобы результат был похож на картинку выше.</li>
+				<li class="solved">Сделать появляющийся по нажатию на кнопку всплывающее окно с копией текста.</li>
+				<li class="solved">Правильно распределить выполненные требования в основном тексте и внутри всплывающего окна.</li>
+				<li class="solved">Всплывающее окно должно закрываться по нажатию на крестик в его углу.</li>
 			</ol>
 		</div>
 		<div class="column">
 			<h4>Опционально</h4>
 			<ul class="dashed">
-				<li>Максимальная ширина колонки с текстом — как на макете, на более узких ширинах окна браузера ширина колонки должна уменьшаться.</li>
+				<li class="solved">Максимальная ширина колонки с текстом — как на макете, на более узких ширинах окна браузера ширина колонки должна уменьшаться.</li>
 				<li>Если для каких-то элементов на маленьком экране начинает не хватать места, они должны перескакивать на отдельную строку.</li>
 				<li>Содержимое всплывающего окна всегда должно быть доступно, даже на маленьких экранах.</li>
 				<li>Для всплывающего окна можно сделать альтрернативную цветовую схему, например, инвертировать все цвета.</li>
@@ -50,11 +54,31 @@
   <script type="text/javascript">
   	function openPopUp() {
   		var popUp = document.getElementById("pop-up");
-  		var content = document.getElementById("main").innerHTML;
-  		popUp.innerHTML = content;
-  		popUp.style.fontSize = "20%";
+  		var content = document.getElementById("content").innerHTML;
+  		var outerPopUpButton = document.getElementById("pop-up-button");
   		popUp.style.width = "270px";
-  		popUp.style.height = "350px";
+  		popUp.style.height = "400px";
+  		popUp.insertAdjacentHTML("beforeend", "<div class=\"border-pop\" id=\"left-border\"></div>"
+  											+ "<div class=\"border-pop\" id=\"right-border-pop\"></div>");
+  		popUp.insertAdjacentHTML("beforeend", content);
+  		popUp.insertAdjacentHTML("beforeend", "<button id=\"close\" onclick=\"closePopUp()\">X</button>");
+  		var popUpButton = document.getElementById("pop-up-button");
+  		popUpButton.style.display = "none";
+  		popUp.style.fontSize = "20%";
+  		outerPopUpButton.onclick = closePopUp;
+  		var tasks = popUp.getElementsByClassName("solved"); 
+  		for (var i = 0; i < tasks.length; i++) {
+  			tasks[i].style.display = "none";
+  		}
+  	}
+  	function closePopUp() {
+  		var popUp = document.getElementById("pop-up");
+  		popUp.innerHTML = "";
+  		var outerPopUpButton = document.getElementById("pop-up-button");
+  		outerPopUpButton.onclick = openPopUp;
+  		popUp.style.width = "0px";
+  		popUp.style.height = "0px";
+
   	}
   </script>
  </body> 
