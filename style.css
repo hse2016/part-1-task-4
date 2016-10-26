@@ -43,7 +43,7 @@ h3 {
 li {
   font-size: 1.1em;
   margin-top: 1em;
-  margin-left: 0.75em;
+  margin-left: 1em;
   margin-right: 0.5em;
   margin-bottom: 1em;
 }
@@ -64,7 +64,10 @@ li {
 }
 
 .content {
-  margin: 50px;
+  margin-top: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
 }
 
 .pressme {
@@ -99,8 +102,8 @@ li {
   margin: 0.3em;
   float: right;
   position: relative;
-  top: 23px;
-  left: 67px;
+  top: -2px;
+  left: -2px;
 
   content: 'X';
   color: white;
@@ -116,13 +119,13 @@ li {
 
 .closer:focus {
   outline: 0;
-  top: 23px;
-  left: 67px;
+  top: 0px;
+  left: 0px;
 }
 
 .closer:active {
-  top: 25px;
-  left: 67px;
+  top: 0px;
+  left: 0px;
 
   box-shadow: none;
 }
@@ -180,7 +183,7 @@ li {
 .wrapper {
   float: right;
   width: 46%;
-  margin-left: 20px;
+  margin-left: 40px;
 }
 
 .wrapper > div {
@@ -198,8 +201,7 @@ li {
 #leftDecorator, #rightDecorator {
   max-width: 50px;
 
-  background: -o-repeating-linear-gradient(45deg, transparent 0%, black 1px, black 1px, #A7E571 2px, #A7E571 10px);
-  background: repeating-linear-gradient(45deg, transparent 0%, black 1px, black 1px, #A7E571 2px, #A7E571 10px);
+  background: repeating-linear-gradient(45deg, transparent 0%, black 1px, black 1px, #A7E571 2px, #A7E571 7px);
 }
 
 .container-top {
@@ -227,4 +229,9 @@ li {
 }
 
 .unsolved {
+}
+
+.floated-requirements {
+  margin-left: auto;
+  margin-right: auto;
 }
