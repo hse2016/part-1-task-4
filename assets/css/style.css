@@ -1,0 +1,284 @@
+html {
+    height: 100%;
+}
+
+body {
+
+    font-family: Arial !important;
+
+    margin-top: 0px;
+    height: 100%;
+    background: repeating-linear-gradient(45deg, transparent 0%, #94ba71 1px, #94ba71 1px, transparent 2px, transparent 8px);
+    background-color: #cbff9c;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 12px;
+    margin-bottom: 0px;
+
+}
+
+h3 {
+    margin-top: 9px;
+    letter-spacing: 0.8px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.001px;
+    word-spacing: 2px;
+    margin-top: 24px;
+}
+
+ul, ol {
+    margin-top: 24px;
+    font-size: 17px;
+    letter-spacing: 1px;
+    word-spacing: -2.1px;
+}
+
+ol {
+    padding-left: 22px;
+}
+
+ul {
+    margin-left: 5px;
+}
+
+ul.dashed {
+    list-style: none;
+    position: relative;
+}
+
+ol li {
+    margin-top: 24px;
+}
+
+ul li {
+    margin-top: 25px;
+}
+
+p:first-of-type {
+    margin-top: 13px;
+}
+
+ul.dashed li:before {
+    position: absolute;
+    content: '―';
+    left: 15px;
+}
+
+.container {
+    display: table;
+    max-width: 730px;
+    min-height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 15px;
+    padding-bottom: 25px;
+
+}
+
+.container.white {
+    background-color: white;
+}
+
+.center {
+    text-align: center;
+}
+
+.picture {
+    width: 48%;
+    margin-top: 20px;
+}
+
+.picture.right {
+    float: right;
+    border: 1px solid black;
+    margin-left: 28px;
+    margin-bottom: 22px;
+}
+
+.row {
+
+}
+
+.col-6 {
+    display: inline-table;
+    width: 49%;
+}
+
+.col-6.less {
+    width: calc(49% - 6px);
+}
+
+
+.col-6.more {
+    width: calc(49% + 17px);
+}
+
+.text {
+    overflow: hidden;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 25px;
+    width: 135px;
+    background-color: #1f33e0;
+    color: white;
+    outline: none;
+    height: 25px;
+    font-size: 17px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #1b2cc3;
+}
+
+.popup {
+    position: absolute;
+    top: -1000px;
+    left: 0;
+    right: 0;
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.62);
+}
+
+.popup:target {
+    visibility: visible;
+    opacity: 1;
+    top: 0;
+}
+
+.popup .modal-body {
+    position: relative;
+    background-color: white;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.popup .modal-head {
+    display: block;
+    margin-left: 15px;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+.close-button {
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: none;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    font: normal 8em/normal Arial, Helvetica, sans-serif;
+    top: 10px;
+    right: 5px;
+}
+
+.close-button:hover {
+    cursor: pointer;
+}
+
+.close-button:hover::before {
+    background: #3a3a3a;
+}
+
+.close-button:hover::after {
+    background: #3a3a3a;
+}
+
+
+.close-button::before {
+    display: inline-block;
+    width: 0.45em;
+    height: 0.1em;
+    position: absolute;
+    content: "";
+    top: 0.33em;
+    left: 0.155em;
+    border: none;
+    font: normal 50px/normal Arial, Helvetica, sans-serif;
+    background: #000000;
+    text-shadow: none;
+    -webkit-transform: rotateZ(45deg)   ;
+    transform: rotateZ(45deg)   ;
+}
+
+.close-button::after {
+    display: inline-block;
+    width: 0.45em;
+    height: 0.1em;
+    position: absolute;
+    content: "";
+    top: 0.33em;
+    left: 0.155em;
+    font: normal 50px/normal Arial, Helvetica, sans-serif;
+    background: #000000;
+    text-shadow: none;
+    transform: rotateZ(-45deg)   ;
+}
+
+.divider {
+    border-bottom: 1px solid #e2e2e2;
+    width: 100%;
+    padding-top: 13px;
+}
+
+@media screen and (max-width: 1600px) {
+
+}
+@media screen and (max-width: 1280px) {
+
+}
+@media screen and (max-width: 1024px) {
+
+}
+@media screen and (max-width: 600px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .col-6 {
+        width: 100%;
+    }
+}
+
+
+/*Iphones*/
+@media only screen
+and (max-device-width : 667px) {
+    .container {
+        max-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .col-6 {
+        width: 100%;
+    }
+}
