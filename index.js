@@ -1,5 +1,5 @@
 function onLoad() {
-	document.getElementById('recursion').src = "index.html";
+	document.getElementById('recursion').src = "index.html?recursion_hack=" + Math.random();
 }
 
 function openNewWindow() {
